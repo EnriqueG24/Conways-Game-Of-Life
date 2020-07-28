@@ -26,6 +26,14 @@ class Grid {
         }
     }
     
+    var speed: Float = 0.3 {
+        didSet {
+            if timer.isValid {
+                speedChanged()
+            }
+        }
+    }
+    
     // MARK: - Init
     init(width: CGFloat, height: CGFloat, view: UIView) {
         self.width = width
@@ -98,6 +106,13 @@ class Grid {
         computeNext()
     }
     
+    func speedChanged() {
+        timer.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(speed), repeats: true, block: { (timer) in
+            self.run()
+        })
+    }
+    
     func setupGrid(width: CGFloat, height: CGFloat, view: UIView, isNext: Bool = false) -> [[GridCells]] {
         var gridcells = [[GridCells]]()
         var gridcolumn = [GridCells]()
@@ -114,5 +129,18 @@ class Grid {
             gridcolumn.removeAll()
         }
         return gridcells
+    }
+    
+    func configureTimer() {
+        if timer.isValid {
+            timer.invalidate()
+            view.isUserInteractionEnabled = true
+        } else {
+            view.isUserInteractionEnabled = false
+            timer.invalidate()
+            timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(), repeats: true, block: { (timer) in
+                self.run()
+            })
+        }
     }
 }

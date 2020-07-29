@@ -21,6 +21,8 @@ class GridCells: UIView {
             return .systemBlue
         case .green:
             return .systemGreen
+        case .red:
+            return .systemRed
         }
     }
     

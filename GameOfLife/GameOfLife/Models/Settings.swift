@@ -12,6 +12,7 @@ enum CellColor: Int {
     case black = 1
     case green
     case blue
+    case red
 }
 
 class Settings {

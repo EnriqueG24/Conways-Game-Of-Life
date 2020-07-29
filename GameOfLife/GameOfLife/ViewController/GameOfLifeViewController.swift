@@ -9,7 +9,7 @@
 import UIKit
 
 class GameOfLifeViewController: UIViewController {
-
+    
     // MARK: - Properties
     var grid: Grid!
     var timer = Timer()
@@ -35,12 +35,13 @@ class GameOfLifeViewController: UIViewController {
         grid.resetGame()
     }
     
-    
     // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        backgroundGradient()
         grid = Grid(width: self.view.frame.width, height: self.view.frame.height, view: self.view)
+        settingsVC = SettingsViewController(grid: grid)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTitle), name: Notification.Name("generationChanged"), object: nil)
+        backgroundGradient()
         setupPreset()
         setupTableView()
         configurePresets()
@@ -54,6 +55,8 @@ class GameOfLifeViewController: UIViewController {
         grid.presets.append(ShapePresets(size: 1, cellWidth: grid.cellSize, toolPalette: .dot))
         grid.presets.append(ShapePresets(size: 2, cellWidth: grid.cellSize, toolPalette: .block))
         grid.presets.append(ShapePresets(size: 3, cellWidth: grid.cellSize, toolPalette: .blinker))
+        grid.presets.append(ShapePresets(size: 3, cellWidth: grid.cellSize, toolPalette: .glider))
+        grid.presets.append(ShapePresets(size: 4, cellWidth: grid.cellSize, toolPalette: .beacon))
     }
     
     func configurePresetBar() {
@@ -73,16 +76,13 @@ class GameOfLifeViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(label)
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: resetBtn.topAnchor),
-            label.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            label.topAnchor.constraint(equalTo: resetBtn.bottomAnchor, constant: 5),
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
     }
     
     func configureCurrentPresetView(index: Int) {
-        if grid.currentPreset != nil {
-            grid.currentPreset.removeFromSuperview()
-        }
-        
+        if grid.currentPreset != nil { grid.currentPreset.removeFromSuperview() }
         let selectedPreset = grid.presets[index]
         let preset = ShapePresets(size: selectedPreset.size, cellWidth: selectedPreset.cellWidth, toolPalette: selectedPreset.currentTool)
         grid.currentPreset = preset
@@ -92,7 +92,7 @@ class GameOfLifeViewController: UIViewController {
             preset.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 5),
             preset.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -preset.frame.width / 2)
         ])
-        label.text = "Current Tool: " + grid.currentPreset.currentTool.rawValue.capitalized
+        label.text = "Current Brush: " + grid.currentPreset.currentTool.rawValue.capitalized
     }
     
     func backgroundGradient() {
@@ -105,11 +105,16 @@ class GameOfLifeViewController: UIViewController {
     }
     
     func setupPreset() {
-        // TO-DO: Need to add constraints
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(tableView)
         self.presetTableView = tableView
+        NSLayoutConstraint.activate([
+            self.presetView.topAnchor.constraint(equalTo: tableView.topAnchor),
+            self.presetView.bottomAnchor.constraint(equalTo: tableView.bottomAnchor),
+            self.presetView.leadingAnchor.constraint(equalTo: tableView.leadingAnchor),
+            self.presetView.trailingAnchor.constraint(equalTo: tableView.trailingAnchor),
+        ])
     }
     
     func setupTableView() {
@@ -119,8 +124,23 @@ class GameOfLifeViewController: UIViewController {
         self.presetTableView.register(PresetTableViewCell.self, forCellReuseIdentifier: "PresetCell")
         presetTableView.backgroundColor = .clear
     }
+    
+    // MARK: - Objective-C Methods
+    @objc func updateTitle(_ notification: NSNotification) {
+        if let dict = notification.userInfo {
+            if let id = dict["generations"] as? Int {
+                if id == 0{
+                    title = "Game of Life"
+                } else {
+                    title = "\(id) Generations"
+                }
+            }
+        }
+    }
 }
 
+
+// MARK: - Extension
 extension GameOfLifeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return grid.presets.count
@@ -134,9 +154,9 @@ extension GameOfLifeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         configureCurrentPresetView(index: indexPath.row)
-
+        
         if indexPath.row == 6 {
-        grid.resetGrid(grid: grid.screenArray)
+            grid.resetGrid(grid: grid.screenArray)
             for x in 0...24 {
                 for y in 0...24 {
                     let rand = Int.random(in: 0...4)

@@ -38,15 +38,15 @@ class GameOfLifeViewController: UIViewController {
     // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        backgroundGradient()
         grid = Grid(width: self.view.frame.width, height: self.view.frame.height, view: self.view)
         settingsVC = SettingsViewController(grid: grid)
         NotificationCenter.default.addObserver(self, selector: #selector(updateTitle), name: Notification.Name("generationChanged"), object: nil)
-        backgroundGradient()
+        configurePresetBar()
         setupPreset()
         setupTableView()
-        configurePresets()
-        configurePresetBar()
         configureCurrentPresetLabel()
+        configurePresets()
         configureCurrentPresetView(index: 0)
     }
     

@@ -53,7 +53,7 @@ class GridCells: UIView {
     
     func aliveCell() {
         isAlive = true
-        self.backgroundColor = UIColor.systemGreen
+        self.backgroundColor = color
     }
     
     func getCoordinates() -> (x: Int, y: Int)? {

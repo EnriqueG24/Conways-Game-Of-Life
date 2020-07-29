@@ -114,9 +114,9 @@ class SettingsViewController: UIViewController {
         speedSlider.translatesAutoresizingMaskIntoConstraints = false
         exitButton.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(white: 0, alpha: 0.50)
-        configureStackView()
-        configureSpeedSlider()
         configureExitButton()
+        configureSpeedSlider()
+        configureStackView()
     }
     
     // MARK: - Objective-C Methods

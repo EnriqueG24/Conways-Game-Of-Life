@@ -68,7 +68,6 @@ class Grid {
                 nextArray[x][y].isAlive ? screenArray[x][y].aliveCell() : screenArray[x][y].deadCell()
             }
         }
-        
     }
     
     func resetGrid(grid: [[GridCells]]) {
@@ -140,7 +139,7 @@ class Grid {
         } else {
             view.isUserInteractionEnabled = false
             timer.invalidate()
-            timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(), repeats: true, block: { (timer) in
+            timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(speed), repeats: true, block: { (timer) in
                 self.run()
             })
         }

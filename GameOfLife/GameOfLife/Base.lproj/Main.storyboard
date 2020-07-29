@@ -27,19 +27,29 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="Cee-Jn-aPw">
-                        <barButtonItem key="leftBarButtonItem" title="Settings" image="gear" catalog="system" id="7go-G7-ZcB">
-                            <connections>
-                                <action selector="settingsButtonTapped:" destination="BYZ-38-t0r" id="NUA-i6-iVi"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Settings" image="gear" catalog="system" id="7go-G7-ZcB">
+                                <connections>
+                                    <action selector="settingsButtonTapped:" destination="BYZ-38-t0r" id="NUA-i6-iVi"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Next" id="QyG-9O-VZZ">
+                                <connections>
+                                    <action selector="nextButtonTapped:" destination="BYZ-38-t0r" id="1nn-mh-WdF"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="Play" id="c4y-Ub-dRN">
                             <connections>
                                 <action selector="playButtonTapped:" destination="BYZ-38-t0r" id="mNR-pn-huP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="nextBtn" destination="QyG-9O-VZZ" id="ec0-Hh-4Cx"/>
                         <outlet property="resetBtn" destination="ubA-1a-tKh" id="5xP-7m-lIb"/>
                     </connections>
                 </viewController>

@@ -21,10 +21,20 @@ class GameOfLifeViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var resetBtn: UIButton!
+    @IBOutlet weak var nextBtn: UIBarButtonItem!
     
     
     // MARK: - IBActions
     @IBAction func playButtonTapped(_ sender: UIBarButtonItem) {
+        if isRunning == false {
+            isRunning = true
+            sender.image = UIImage(systemName: "pause.circle")
+            nextBtn.isEnabled = false
+        } else {
+            isRunning = false
+            sender.image = UIImage(systemName: "play.circle")
+            nextBtn.isEnabled = true
+        }
         grid.configureTimer()
     }
     @IBAction func settingsButtonTapped(_ sender: UIBarButtonItem) {
@@ -33,6 +43,12 @@ class GameOfLifeViewController: UIViewController {
     
     @IBAction func resetButtonTapped(_ sender: UIButton) {
         grid.resetGame()
+    }
+    @IBAction func nextButtonTapped(_ sender: UIBarButtonItem) {
+        if isRunning == false {
+            grid.computeNext()
+            grid.generations += 1
+        }
     }
     
     // MARK: - View LifeCycle

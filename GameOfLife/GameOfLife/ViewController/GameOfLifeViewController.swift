@@ -20,9 +20,7 @@ class GameOfLifeViewController: UIViewController {
     let presetView = UIView()
     
     // MARK: - IBOutlets
-    @IBOutlet weak var anchor: UIButton!
     @IBOutlet weak var nextBtn: UIBarButtonItem!
-    
     
     // MARK: - IBActions
     @IBAction func playButtonTapped(_ sender: UIBarButtonItem) {
@@ -37,6 +35,7 @@ class GameOfLifeViewController: UIViewController {
         }
         grid.configureTimer()
     }
+    
     @IBAction func settingsButtonTapped(_ sender: UIBarButtonItem) {
         present(settingsVC, animated: true)
     }
@@ -93,7 +92,7 @@ class GameOfLifeViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(label)
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: anchor.bottomAnchor, constant: 5),
+            label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5),
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
     }

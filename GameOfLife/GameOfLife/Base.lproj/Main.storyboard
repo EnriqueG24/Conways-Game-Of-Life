@@ -33,18 +33,11 @@
                                 <action selector="settingsButtonTapped:" destination="BYZ-38-t0r" id="NUA-i6-iVi"/>
                             </connections>
                         </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem image="info.circle" catalog="system" id="0M6-tv-6vc">
-                                <connections>
-                                    <segue destination="cKO-Bx-fG3" kind="show" id="t6X-y3-AVK"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Play" id="c4y-Ub-dRN">
-                                <connections>
-                                    <action selector="playButtonTapped:" destination="BYZ-38-t0r" id="mNR-pn-huP"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Play" id="c4y-Ub-dRN">
+                            <connections>
+                                <action selector="playButtonTapped:" destination="BYZ-38-t0r" id="mNR-pn-huP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="resetBtn" destination="ubA-1a-tKh" id="5xP-7m-lIb"/>
@@ -61,23 +54,7 @@
                     <view key="view" contentMode="scaleToFill" id="Zmn-Ie-nXo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Jdv-3c-Tfg">
-                                <rect key="frame" x="20" y="88" width="374" height="774"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970.[1] It is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves. It is Turing complete and can simulate a universal constructor or any other Turing machine.</string>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="Jdv-3c-Tfg" firstAttribute="top" secondItem="vUT-7V-pct" secondAttribute="top" id="3sb-Fj-fm3"/>
-                            <constraint firstItem="Jdv-3c-Tfg" firstAttribute="bottom" secondItem="vUT-7V-pct" secondAttribute="bottom" id="MxR-tl-bZU"/>
-                            <constraint firstItem="vUT-7V-pct" firstAttribute="trailing" secondItem="Jdv-3c-Tfg" secondAttribute="trailing" constant="20" id="mth-Yg-6xl"/>
-                            <constraint firstItem="Jdv-3c-Tfg" firstAttribute="leading" secondItem="vUT-7V-pct" secondAttribute="leading" constant="20" id="z6x-8v-XlS"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vUT-7V-pct"/>
                     </view>
                     <navigationItem key="navigationItem" id="HTu-ZI-28s"/>
@@ -107,6 +84,5 @@
     </scenes>
     <resources>
         <image name="gear" catalog="system" width="128" height="119"/>
-        <image name="info.circle" catalog="system" width="128" height="121"/>
     </resources>
 </document>

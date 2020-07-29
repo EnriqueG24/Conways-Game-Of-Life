@@ -23,6 +23,18 @@ class GridCells: UIView {
             return .systemGreen
         case .red:
             return .systemRed
+        case .purple:
+            return .systemPurple
+        case .pink:
+            return .systemPink
+        case .teal:
+            return .systemTeal
+        case .indigo:
+            return .systemIndigo
+        case .orange:
+            return .systemOrange
+        case .yellow:
+            return .systemYellow
         }
     }
     

@@ -50,22 +50,31 @@ class SettingsViewController: UIViewController {
         configureStackViewConstraints()
         stackView.distribution = .fillEqually
         
-        for i in 1...5 {
+        for i in 1...10 {
             let button = UIButton()
             button.tag = i
             button.addTarget(self, action: #selector(colorChanged(sender:)), for: .touchUpInside)
             switch i {
             case 1:
-                button.backgroundColor = .systemGreen
-            case 2:
-                button.backgroundColor = .systemBlue
-            case 3:
-                button.backgroundColor = .systemRed
-            case 4:
                 button.backgroundColor = .black
+            case 2:
+                button.backgroundColor = .green
+            case 3:
+                button.backgroundColor = .blue
+            case 4:
+                button.backgroundColor = .red
             case 5:
-                button.backgroundColor = .systemBackground
-                button.setImage(UIImage(systemName: "shuffle"), for: .normal)
+                button.backgroundColor = .purple
+            case 6:
+                button.backgroundColor = .systemPink
+            case 7:
+                button.backgroundColor = .systemTeal
+            case 8:
+                button.backgroundColor = .systemIndigo
+            case 9:
+                button.backgroundColor = .orange
+            case 10:
+                button.backgroundColor = .yellow
             default:
                 button.backgroundColor = .black
             }

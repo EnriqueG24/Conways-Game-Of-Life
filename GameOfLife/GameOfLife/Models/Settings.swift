@@ -7,12 +7,17 @@
 //
 
 import UIKit
-
 enum CellColor: Int {
     case black = 1
     case green
     case blue
     case red
+    case purple
+    case pink
+    case teal
+    case indigo
+    case orange
+    case yellow
 }
 
 class Settings {

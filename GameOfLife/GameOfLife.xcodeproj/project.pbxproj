@@ -16,6 +16,9 @@
 		5C471ECA24CF3F3700734631 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C471EC824CF3F3700734631 /* LaunchScreen.storyboard */; };
 		5CB962EB24CFF5F4006E1F06 /* GameOfLifeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB962EA24CFF5F4006E1F06 /* GameOfLifeViewController.swift */; };
 		5CB962F024D0CE65006E1F06 /* ShapePresets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB962EF24D0CE65006E1F06 /* ShapePresets.swift */; };
+		5CB962F324D0E0DD006E1F06 /* PresetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB962F224D0E0DD006E1F06 /* PresetTableViewCell.swift */; };
+		5CB962F524D0ED0E006E1F06 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB962F424D0ED0E006E1F06 /* SettingsViewController.swift */; };
+		5CB962F724D0EEC9006E1F06 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB962F624D0EEC9006E1F06 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		5C471ECB24CF3F3700734631 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CB962EA24CFF5F4006E1F06 /* GameOfLifeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfLifeViewController.swift; sourceTree = "<group>"; };
 		5CB962EF24D0CE65006E1F06 /* ShapePresets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapePresets.swift; sourceTree = "<group>"; };
+		5CB962F224D0E0DD006E1F06 /* PresetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetTableViewCell.swift; sourceTree = "<group>"; };
+		5CB962F424D0ED0E006E1F06 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		5CB962F624D0EEC9006E1F06 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,9 +70,8 @@
 			children = (
 				5C471EBD24CF3F3700734631 /* AppDelegate.swift */,
 				5C471EBF24CF3F3700734631 /* SceneDelegate.swift */,
-				5C1906A324CF6806000752F4 /* Grid.swift */,
-				5C1906A524CFB221000752F4 /* GridCells.swift */,
-				5CB962EF24D0CE65006E1F06 /* ShapePresets.swift */,
+				5CB962F224D0E0DD006E1F06 /* PresetTableViewCell.swift */,
+				5CB962F124D0E095006E1F06 /* Models */,
 				5CB962EE24D0024A006E1F06 /* ViewController */,
 				5C471EC324CF3F3700734631 /* Main.storyboard */,
 				5C471EC624CF3F3700734631 /* Assets.xcassets */,
@@ -80,8 +85,20 @@
 			isa = PBXGroup;
 			children = (
 				5CB962EA24CFF5F4006E1F06 /* GameOfLifeViewController.swift */,
+				5CB962F424D0ED0E006E1F06 /* SettingsViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5CB962F124D0E095006E1F06 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5C1906A324CF6806000752F4 /* Grid.swift */,
+				5CB962F624D0EEC9006E1F06 /* Settings.swift */,
+				5C1906A524CFB221000752F4 /* GridCells.swift */,
+				5CB962EF24D0CE65006E1F06 /* ShapePresets.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,8 +176,11 @@
 				5C1906A624CFB221000752F4 /* GridCells.swift in Sources */,
 				5CB962F024D0CE65006E1F06 /* ShapePresets.swift in Sources */,
 				5C471EC024CF3F3700734631 /* SceneDelegate.swift in Sources */,
+				5CB962F324D0E0DD006E1F06 /* PresetTableViewCell.swift in Sources */,
 				5C1906A424CF6806000752F4 /* Grid.swift in Sources */,
+				5CB962F724D0EEC9006E1F06 /* Settings.swift in Sources */,
 				5CB962EB24CFF5F4006E1F06 /* GameOfLifeViewController.swift in Sources */,
+				5CB962F524D0ED0E006E1F06 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

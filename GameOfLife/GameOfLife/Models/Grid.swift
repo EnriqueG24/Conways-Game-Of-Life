@@ -18,6 +18,8 @@ class Grid {
     var timer: Timer = Timer()
     var screenArray = [[GridCells]]()
     var nextArray = [[GridCells]]()
+    var presets: [ShapePresets] = []
+    var currentPreset: ShapePresets!
     
     // MARK: - Computed Properties
     var generations = 0 {
@@ -142,5 +144,12 @@ class Grid {
                 self.run()
             })
         }
+    }
+    
+    func resetGame() {
+        timer.invalidate()
+        view.isUserInteractionEnabled = true
+        resetGrid(grid: screenArray)
+        generations = 0
     }
 }

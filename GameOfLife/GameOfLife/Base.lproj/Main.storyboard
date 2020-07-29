@@ -18,10 +18,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubA-1a-tKh">
                                 <rect key="frame" x="172" y="103" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Reset"/>
-                                <connections>
-                                    <action selector="resetButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Sx-o2-VrV"/>
-                                </connections>
+                                <state key="normal" title="Anchor"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -41,16 +38,23 @@
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" title="Play" id="c4y-Ub-dRN">
-                            <connections>
-                                <action selector="playButtonTapped:" destination="BYZ-38-t0r" id="mNR-pn-huP"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Play" id="c4y-Ub-dRN">
+                                <connections>
+                                    <action selector="playButtonTapped:" destination="BYZ-38-t0r" id="mNR-pn-huP"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="refresh" id="GxV-GN-bQZ">
+                                <connections>
+                                    <action selector="resetButtonTapped:" destination="BYZ-38-t0r" id="cw3-16-OQS"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="anchor" destination="ubA-1a-tKh" id="5xP-7m-lIb"/>
                         <outlet property="nextBtn" destination="QyG-9O-VZZ" id="ec0-Hh-4Cx"/>
-                        <outlet property="resetBtn" destination="ubA-1a-tKh" id="5xP-7m-lIb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -9,20 +9,33 @@
 import UIKit
 
 class GridCells: UIView {
+    
     // MARK: - Properties
     var grid: Grid?
     var isAlive: Bool = false
+    var color: UIColor {
+        switch Settings.shared.cellColor {
+        case .black:
+            return .black
+        case .blue:
+            return .systemBlue
+        case .green:
+            return .systemGreen
+        }
+    }
     
     // MARK: - Init
     init(frame: CGRect, isAlive: Bool = false) {
         super.init(frame: frame)
         self.isAlive = isAlive
         configureView()
+        NotificationCenter.default.addObserver(self, selector: #selector(colorChanged), name: Notification.Name("didChangeCellColor"), object: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     // MARK: - Methods
     func configureView() {
@@ -50,5 +63,84 @@ class GridCells: UIView {
             }
         }
         return nil
+    }
+    
+    func checkFor4Coordinates(coordinates: (x: Int, y: Int)) {
+        let rows = 25
+        for i in coordinates.x...coordinates.x+1 {
+            for j in coordinates.y...coordinates.y+1 {
+                if ((i >= rows) || (j >= rows) || ( i < 0 ) || (j < 0)) {
+                    continue
+                }
+                guard let presetCellIsActive = grid?.currentPreset.box[i - coordinates.x ][j - coordinates.y].isAlive else { return }
+                if presetCellIsActive {
+                    grid?.screenArray[i][j].aliveCell()
+                } else {
+                    grid?.screenArray[i][j].deadCell()
+                }
+            }
+        }
+    }
+    
+    func checkFor9Coordinates(coordinates: (x: Int, y: Int)) {
+        let rows = 25
+        
+        for i in coordinates.x-1...coordinates.x+1 {
+            for j in coordinates.y-1...coordinates.y+1 {
+                if ((i >= rows) || (j >= rows) || ( i < 0 ) || (j < 0)) {
+                    continue
+                }
+                
+                guard let presetCellIsActive = grid?.currentPreset.box[i - coordinates.x + 1][j - coordinates.y + 1].isAlive else { return }
+                if presetCellIsActive {
+                    grid?.screenArray[i][j].aliveCell()
+                } else {
+                    grid?.screenArray[i][j].deadCell()
+                }
+            }
+        }
+    }
+    
+    func checkFor16Coordinates(coordinates: (x: Int, y: Int)) {
+        let rows = 25
+        
+        for i in coordinates.x-1...coordinates.x+2 {
+            for j in coordinates.y-1...coordinates.y+2 {
+                if ((i >= rows) || (j >= rows) || ( i < 0 ) || (j < 0)) {
+                    continue
+                }
+                guard let presetCellIsActive = grid?.currentPreset.box[i - coordinates.x + 1][j - coordinates.y + 1].isAlive else { return }
+                if presetCellIsActive {
+                    grid?.screenArray[i][j].aliveCell()
+                } else {
+                    grid?.screenArray[i][j].deadCell()
+                }
+            }
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let preset = grid?.currentPreset else { return }
+        guard let coordinates = getCoordinates() else { return }
+        if preset.box.count == 1 {
+            if isAlive == false {
+                aliveCell()
+            } else {
+                deadCell()
+            }
+        } else if ((preset.box.count * preset.box.count) / 2) == 2 {
+            checkFor4Coordinates(coordinates: coordinates)
+        } else if ((preset.box.count * preset.box.count) / 2) == 4 {
+            checkFor9Coordinates(coordinates: coordinates)
+        } else if ((preset.box.count * preset.box.count) / 2) == 8 {
+            checkFor16Coordinates(coordinates: coordinates)
+        }
+    }
+    
+    // MARK: - Objective-C Methods
+    @objc func colorChanged() {
+        if isAlive {
+            backgroundColor = color
+        }
     }
 }

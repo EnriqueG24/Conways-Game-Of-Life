@@ -16,12 +16,25 @@ class GameOfLifeViewController: UIViewController {
     var isRunning = false
     var label = UILabel()
     var presetTableView = UITableView()
+    var settingsVC: SettingsViewController!
     let presetView = UIView()
+    
+    // MARK: - IBOutlets
+    @IBOutlet weak var resetBtn: UIButton!
+    
     
     // MARK: - IBActions
     @IBAction func playButtonTapped(_ sender: UIBarButtonItem) {
         grid.configureTimer()
     }
+    @IBAction func settingsButtonTapped(_ sender: UIBarButtonItem) {
+        present(settingsVC, animated: true)
+    }
+    
+    @IBAction func resetButtonTapped(_ sender: UIButton) {
+        grid.resetGame()
+    }
+    
     
     // MARK: - View LifeCycle
     override func viewDidLoad() {
@@ -32,6 +45,7 @@ class GameOfLifeViewController: UIViewController {
         setupTableView()
         configurePresets()
         configurePresetBar()
+        configureCurrentPresetLabel()
         configureCurrentPresetView(index: 0)
     }
     
@@ -46,10 +60,25 @@ class GameOfLifeViewController: UIViewController {
         presetView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(presetView)
         presetView.backgroundColor = .clear
+        NSLayoutConstraint.activate([
+            presetView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            presetView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            presetView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            presetView.topAnchor.constraint(equalTo: grid.screenArray[24][24].bottomAnchor)
+        ])
+    }
+    
+    func configureCurrentPresetLabel() {
+        label.text = "Current Brush: Dot"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(label)
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: resetBtn.topAnchor),
+            label.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+        ])
     }
     
     func configureCurrentPresetView(index: Int) {
-        // TO-DO: Need to add constraints
         if grid.currentPreset != nil {
             grid.currentPreset.removeFromSuperview()
         }
@@ -59,6 +88,10 @@ class GameOfLifeViewController: UIViewController {
         grid.currentPreset = preset
         preset.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(preset)
+        NSLayoutConstraint.activate([
+            preset.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 5),
+            preset.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -preset.frame.width / 2)
+        ])
         label.text = "Current Tool: " + grid.currentPreset.currentTool.rawValue.capitalized
     }
     

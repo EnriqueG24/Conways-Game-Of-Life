@@ -61,10 +61,8 @@ class ShapePresets: UIView {
         for j in 0...(size - 1) {
             for i in 0...(size - 1) {
                 let cell = GridCells(frame: CGRect(x: cellWidth * CGFloat(j), y: cellWidth * CGFloat(i), width: cellWidth, height: cellWidth))
-
                 cell.isUserInteractionEnabled = false
                 addSubview(cell)
-                
                 gridColumn.append(cell)
             }
             grid.append(gridColumn)

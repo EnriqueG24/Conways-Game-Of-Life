@@ -14,21 +14,41 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubA-1a-tKh">
+                                <rect key="frame" x="172" y="103" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Sx-o2-VrV"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Cee-Jn-aPw">
-                        <barButtonItem key="leftBarButtonItem" title="Play" id="c4y-Ub-dRN">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" image="gear" catalog="system" id="7go-G7-ZcB">
                             <connections>
-                                <action selector="playButtonTapped:" destination="BYZ-38-t0r" id="mNR-pn-huP"/>
+                                <action selector="settingsButtonTapped:" destination="BYZ-38-t0r" id="NUA-i6-iVi"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="info.circle" catalog="system" id="0M6-tv-6vc">
-                            <connections>
-                                <segue destination="cKO-Bx-fG3" kind="show" id="t6X-y3-AVK"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="info.circle" catalog="system" id="0M6-tv-6vc">
+                                <connections>
+                                    <segue destination="cKO-Bx-fG3" kind="show" id="t6X-y3-AVK"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Play" id="c4y-Ub-dRN">
+                                <connections>
+                                    <action selector="playButtonTapped:" destination="BYZ-38-t0r" id="mNR-pn-huP"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="resetBtn" destination="ubA-1a-tKh" id="5xP-7m-lIb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -86,6 +106,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
     </resources>
 </document>

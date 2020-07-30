@@ -1,8 +1,7 @@
 # Conways-Game-Of-Life
-
 The **Game of life**, also known simple as **Life** is a cellular automaton devised by the British mathematician John Horton Conway in 1970. It is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the game of life by creating an initial configuration and observing how it evolves.
 
-<img align="left" width="300" height="500" src="Images/HomeScreen Image.png">
+<img width="300" height="500" src="Images/HomeScreen Image.png">
 
 -----
 # Rules

@@ -53,22 +53,6 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
         </scene>
-        <!--Settings View Controller-->
-        <scene sceneID="cKj-ue-76E">
-            <objects>
-                <viewController id="cKO-Bx-fG3" customClass="SettingsViewController" customModule="GameOfLife" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Zmn-Ie-nXo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="vUT-7V-pct"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="HTu-ZI-28s"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="56y-va-CpM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1863.7681159420292" y="137.94642857142856"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="I5q-I8-0dA">
             <objects>

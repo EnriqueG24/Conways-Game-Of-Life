@@ -15,6 +15,7 @@ enum ToolPalette: String {
     case blinker
     case glider
     case beacon
+    case rectangle
 }
 
 class ShapePresets: UIView {
@@ -67,6 +68,13 @@ class ShapePresets: UIView {
             box[3][2].aliveCell()
             box[2][3].aliveCell()
             box[3][3].aliveCell()
+        case .rectangle:
+            box[0][0].aliveCell()
+            box[1][0].aliveCell()
+            box[2][0].aliveCell()
+            box[0][1].aliveCell()
+            box[1][1].aliveCell()
+            box[2][1].aliveCell()
         }
     }
     

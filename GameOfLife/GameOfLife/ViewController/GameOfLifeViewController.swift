@@ -73,6 +73,7 @@ class GameOfLifeViewController: UIViewController {
         grid.presets.append(ShapePresets(size: 3, cellWidth: grid.cellSize, toolPalette: .blinker))
         grid.presets.append(ShapePresets(size: 3, cellWidth: grid.cellSize, toolPalette: .glider))
         grid.presets.append(ShapePresets(size: 4, cellWidth: grid.cellSize, toolPalette: .beacon))
+        grid.presets.append(ShapePresets(size: 3, cellWidth: grid.cellSize, toolPalette: .rectangle))
     }
     
     func configurePresetBar() {
@@ -114,9 +115,7 @@ class GameOfLifeViewController: UIViewController {
     func backgroundGradient() {
         let layer = CAGradientLayer()
         layer.frame = view.bounds
-        layer.colors = [UIColor.white.cgColor, UIColor.systemTeal.cgColor]
-        layer.startPoint = CGPoint(x: 0, y: 0)
-        layer.endPoint = CGPoint(x: 1, y: 1)
+        layer.colors = [UIColor.white.cgColor, UIColor.black.cgColor]
         view.layer.addSublayer(layer)
     }
     

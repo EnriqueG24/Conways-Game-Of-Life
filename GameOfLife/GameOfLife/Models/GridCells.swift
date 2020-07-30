@@ -60,7 +60,8 @@ class GridCells: UIView {
     
     func deadCell() {
         self.isAlive = false
-        self.backgroundColor = UIColor(white: 1, alpha: 0.20)
+//        self.backgroundColor = UIColor(white: 1, alpha: 0.20)
+        self.backgroundColor = UIColor.white
     }
     
     func aliveCell() {

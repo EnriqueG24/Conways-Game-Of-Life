@@ -13,3 +13,9 @@ The universe of the Game of Life is an infinite, two-dimensional orthogonal grid
 4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
 
 <img width="300" height="500" src ="Images/Animations.gif">
+
+-----
+# Features
+You can change the speed of the generations, as well as change the colors of the cells for a more vibrant and rich experience.
+<img width="300" height="500" src="Images/ColorChange.gif">
+<img width="300" height="500" src="Images/SpeedChange.gif">

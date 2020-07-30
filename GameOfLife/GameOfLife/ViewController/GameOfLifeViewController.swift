@@ -91,7 +91,7 @@ class GameOfLifeViewController: UIViewController {
     }
     
     func configureCurrentPresetLabel() {
-        label.text = "Current Brush: Dot"
+        label.text = "Current Tool: Dot"
         label.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(label)
         NSLayoutConstraint.activate([
@@ -111,7 +111,7 @@ class GameOfLifeViewController: UIViewController {
             preset.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 5),
             preset.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -preset.frame.width / 2)
         ])
-        label.text = "Current Brush: " + grid.currentPreset.currentTool.rawValue.capitalized
+        label.text = "Current Tool: " + grid.currentPreset.currentTool.rawValue.capitalized
     }
     
     func backgroundGradient() {

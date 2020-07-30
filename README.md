@@ -16,7 +16,7 @@ The universe of the Game of Life is an infinite, two-dimensional orthogonal grid
 
 -----
 # Features
-You can change the speed of the generations, as well as change the colors of the cells for a more vibrant and rich experience.
+You can change the speed of the generations, go through generations one by one, as well as change the colors of the cells for a more vibrant and rich experience.
 
 <img align="left" width="295" height="500" src="Images/ColorChange.gif">
 <img align="left" width="295" height="500" src="Images/SpeedChange.gif">

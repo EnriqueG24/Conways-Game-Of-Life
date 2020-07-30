@@ -72,8 +72,10 @@ class GameOfLifeViewController: UIViewController {
         grid.presets.append(ShapePresets(size: 2, cellWidth: grid.cellSize, toolPalette: .block))
         grid.presets.append(ShapePresets(size: 3, cellWidth: grid.cellSize, toolPalette: .blinker))
         grid.presets.append(ShapePresets(size: 3, cellWidth: grid.cellSize, toolPalette: .glider))
-        grid.presets.append(ShapePresets(size: 4, cellWidth: grid.cellSize, toolPalette: .beacon))
         grid.presets.append(ShapePresets(size: 3, cellWidth: grid.cellSize, toolPalette: .rectangle))
+        grid.presets.append(ShapePresets(size: 3, cellWidth: grid.cellSize, toolPalette: .tub))
+        grid.presets.append(ShapePresets(size: 4, cellWidth: grid.cellSize, toolPalette: .beacon))
+        grid.presets.append(ShapePresets(size: 4, cellWidth: grid.cellSize, toolPalette: .beehive))
     }
     
     func configurePresetBar() {

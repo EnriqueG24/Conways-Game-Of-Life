@@ -16,6 +16,8 @@ enum ToolPalette: String {
     case glider
     case beacon
     case rectangle
+    case beehive
+    case tub
 }
 
 class ShapePresets: UIView {
@@ -75,6 +77,18 @@ class ShapePresets: UIView {
             box[0][1].aliveCell()
             box[1][1].aliveCell()
             box[2][1].aliveCell()
+        case .beehive:
+            box[1][0].aliveCell()
+            box[2][0].aliveCell()
+            box[0][1].aliveCell()
+            box[1][2].aliveCell()
+            box[2][2].aliveCell()
+            box[3][1].aliveCell()
+        case .tub:
+            box[1][0].aliveCell()
+            box[0][1].aliveCell()
+            box[2][1].aliveCell()
+            box[1][2].aliveCell()
         }
     }
     

@@ -18,6 +18,15 @@ class SettingsViewController: UIViewController {
     var cellColorButtons = [UIButton]()
     let label = UILabel()
     
+    var gameOfLifeInfoText = """
+    The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970.
+
+    1. Any live cell with fewer than two live neighbours dies, as if by underpopulation.
+    2. Any live cell with two or three live neighbours lives on to the next generation.
+    3. Any live cell with more than three live neighbours dies, as if by overpopulation.
+    4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+    """
+    
     // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,6 +127,24 @@ class SettingsViewController: UIViewController {
         ])
     }
     
+    private func configureTextView() {
+        let textView = UITextView(frame: CGRect(x: 20.0, y: 90.0, width: 400.0, height: 200.0))
+        textView.center = self.view.center
+        textView.textAlignment = NSTextAlignment.justified
+        textView.backgroundColor = UIColor.clear
+        textView.textColor = UIColor.white
+        textView.font = UIFont.systemFont(ofSize: 13)
+        textView.isEditable = false
+        textView.isSelectable = false
+        textView.text = gameOfLifeInfoText
+        self.view.addSubview(textView)
+        
+        NSLayoutConstraint.activate([
+            textView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            textView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+        ])
+    }
+    
     func setupViews() {
         view.translatesAutoresizingMaskIntoConstraints = false
         speedSlider.translatesAutoresizingMaskIntoConstraints = false
@@ -125,6 +152,7 @@ class SettingsViewController: UIViewController {
         view.backgroundColor = UIColor(white: 0, alpha: 0.50)
         configureExitButton()
         configureSpeedSlider()
+        configureTextView()
         configureStackView()
     }
     

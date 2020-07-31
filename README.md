@@ -3,7 +3,7 @@ The **Game of life**, also known simple as **Life** is a cellular automaton devi
 
 <img width="300" height="500" src="Images/HomeScreen Image.png">
 
------
+---
 # Rules
 The universe of the Game of Life is an infinite, two-dimensional orthogonal grid of square cells, each of which is in one of two possible states, live or dead, (or populated and unpopulated, respectively). Every cell interacts with its eight neighbours, which are the cells that are horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur:
 
@@ -14,16 +14,15 @@ The universe of the Game of Life is an infinite, two-dimensional orthogonal grid
 
 <img width="300" height="500" src ="Images/Animations.gif">
 
------
+---
 # Features
 You can change the speed of the generations, go through generations one by one, as well as change the colors of the cells for a more vibrant and rich experience.
-
 <img align="left" width="295" height="500" src="Images/ColorChange.gif">
 <img align="left" width="295" height="500" src="Images/SpeedChange.gif">
 <img align="left" width="295" height="500" src="Images/NextGeneration.gif">
 
 ---
-
+---
 # Future Additions
 We'll take the **Life** in Game of Life to a whole new meaning. I'm working on finalizing the AR portion of the application so you can experience the game like never before.
 

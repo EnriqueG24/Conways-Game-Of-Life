@@ -24,4 +24,5 @@ You can change the speed of the generations, go through generations one by one, 
 ---
 # Future Additions
 We'll take the **Life** in Game of Life to a whole new meaning. I'm working on finalizing the AR portion of the application so you can experience the game like never before.
-<img align="left" width="295" height="500" src="Images/ARFeature.gif">
+
+<img width="300" height="500" src="Images/ARFeature.gif">
